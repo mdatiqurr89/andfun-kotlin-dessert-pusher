@@ -18,7 +18,6 @@ package com.example.android.dessertpusher
 
 import android.content.ActivityNotFoundException
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -82,7 +81,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         }
 
         // Setup dessertTimer, passing in the lifecycle
-        dessertTimer = DessertTimer(this.lifecycle)
+        dessertTimer = DessertTimer()
 
         // If there is a savedInstanceState bundle, then you're "restarting" the activity
         // If there isn't a bundle, then it's a "fresh" start
@@ -94,7 +93,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             showCurrentDessert()
 
         }
-
+        dessertTimer = DessertTimer()
         // Set the TextViews to the right values
         binding.revenue = revenue
         binding.amountSold = dessertsSold
